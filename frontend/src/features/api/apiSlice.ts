@@ -12,6 +12,8 @@ export type User = {
     profilePic: string;
 }
 
+const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:5000/api" : "/api";
+
 const handleCacheEntryAdded = async (
     _arg: unknown,
     {cacheDataLoaded, cacheEntryRemoved: _cacheEntryRemoved, dispatch: _dispatch}: {
@@ -24,7 +26,7 @@ const handleCacheEntryAdded = async (
         await cacheDataLoaded;
         const {data} = await cacheDataLoaded;
         if (data._id) {
-            const socket = io('http://localhost:5000', {
+            const socket = io(BASE_URL, {
                 query: {userId: data._id},
             });
             _dispatch(setSocket(socket));
@@ -42,7 +44,7 @@ const handleCacheEntryAdded = async (
 export const apiSlice = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:5000/api",
+        baseUrl: import.meta.env.MODE === "development" ? "http://localhost:5000/api" : "/api",
         credentials: "include",
     }),
     endpoints: (builder) => ({
