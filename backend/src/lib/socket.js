@@ -9,8 +9,6 @@ const io = new Server(server, {
     cors: {
         origin: ["https://basikalo.onrender.com"],
     },
-    path: "/socket.io",
-
 });
 
 export function getReceiverSocketId(userId) {
