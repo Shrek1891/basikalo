@@ -33,6 +33,7 @@ const ChatContainer = () => {
     const socket = useSelector(
         (state: RootState) => state.chat.socket,
     )
+    console.log(socket)
     useEffect(() => {
         socket?.on("newMessage", (message: Message) => {
             toast.success(`${selectedUser?.fullName} sent you a message`, {duration: 3000});
