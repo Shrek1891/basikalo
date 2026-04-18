@@ -12,7 +12,7 @@ export type User = {
     profilePic: string;
 }
 
-const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:5000/api" : "/api";
+const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:5000" : "/";
 
 const handleCacheEntryAdded = async (
     _arg: unknown,

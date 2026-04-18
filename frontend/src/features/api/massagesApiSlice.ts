@@ -3,7 +3,7 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 export const messagesApiSlice = createApi({
     reducerPath: "messages",
     baseQuery: fetchBaseQuery({
-        baseUrl: import.meta.env.MODE === "development" ? "http://localhost:5000/api" : "/api",
+        baseUrl: import.meta.env.MODE === "development" ? "http://localhost:5000" : "/",
         credentials: "include"
     }),
     endpoints: (builder) => ({
