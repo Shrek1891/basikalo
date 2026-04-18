@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === "production") {
         res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
     });
 }
-server.listen(process.env.PORT, () => {
+server.listen(process.env.PORT || 10000, () => {
     console.log("server is running");
     connectDB();
 });

@@ -54,12 +54,6 @@ export const login = async (req, res) => {
             return res.status(400).json({message: "Invalid password"});
         }
         generateToken(user._id, res);
-        res.cookie("hello", "world", {
-            maxAge: 24 * 60 * 60 * 1000, // 1 day
-            httpOnly: true,
-            sameSite: "lax",
-            secure: "false",
-        });
         res.status(200).json({
             _id: user._id,
             fullName: user.fullName,
