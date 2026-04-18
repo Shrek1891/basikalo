@@ -9,7 +9,6 @@ const io = new Server(server, {
     cors: {
         origin: ["https://basikalo.onrender.com"],
     },
-    transports: ["websocket"],
     path: "/socket.io",
 
 });
